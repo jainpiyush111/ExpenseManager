@@ -4,8 +4,8 @@
     "connector": "memory"
   },
   "mongodb": {
-    "host": "localhost",
-    "port": "27017",
+    "host": "${ENV_DATABASE_HOST}",
+    "port": "${ENV_DATABASE_PORT}",
     "url": "",
     "database": "expense_manager",
     "password": "",
