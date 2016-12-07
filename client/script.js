@@ -64,9 +64,12 @@ myApp.config(['NgAdminConfigurationProvider', function(nga) {
   expenses.listView().fields([
     nga.field('category_id','reference')
     .targetEntity(categories)
-    .targetField(nga.field('name')),
-    nga.field('description'),
+    .targetField(nga.field('name'))
+    .validation({ required: true}),
+    nga.field('description')
+    .validation({ required: true}),
     nga.field('amount','number')
+    .validation({ required: true})
   ]).listActions(['show','edit','delete']);
 
   expenses.creationView().fields(expenses.listView().fields());
@@ -77,6 +80,7 @@ myApp.config(['NgAdminConfigurationProvider', function(nga) {
 
   categories.listView().fields([
     nga.field('name')
+    .validation({ required: true})
   ]).listActions(['show','edit','delete']);
 
   categories.creationView().fields(categories.listView().fields());
